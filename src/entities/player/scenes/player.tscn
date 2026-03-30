@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bm2wk2br8gxbu"]
+
+[ext_resource type="Texture2D" uid="uid://4073g2djmcyv" path="res://assets/enemies/chicken.png" id="1_18lma"]
+[ext_resource type="Script" uid="uid://3bg8yrxmnlj" path="res://src/entities/player/scripts/player.gd" id="1_xnrpp"]
+[ext_resource type="Script" uid="uid://b36e3gbpbtjjw" path="res://src/components/motion/gravity_component.gd" id="3_d0e5q"]
+[ext_resource type="Script" uid="uid://s8qhobcpe21i" path="res://src/components/motion/jump_component.gd" id="4_k38fb"]
+[ext_resource type="Script" uid="uid://bxeigxbdbk1wn" path="res://src/components/motion/input_component.gd" id="5_uc84o"]
+[ext_resource type="Script" uid="uid://drhyx0li6vcob" path="res://src/components/motion/velocity_component.gd" id="6_svh60"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnrpp"]
+size = Vector2(15, 13)
+
+[node name="Player" type="CharacterBody2D" unique_id=28741331 node_paths=PackedStringArray("input_component", "gravity_component", "jump_component", "velocity_component", "Sprite")]
+script = ExtResource("1_xnrpp")
+SPEED = 100.0
+JUMP_VELOCITY = -200.0
+input_component = NodePath("Components/InputComponent")
+gravity_component = NodePath("Components/GravityComponent")
+jump_component = NodePath("Components/JumpComponent")
+velocity_component = NodePath("Components/VelocityComponent")
+Sprite = NodePath("Sprite")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1126164781]
+position = Vector2(0, -10)
+texture = ExtResource("1_18lma")
+hframes = 7
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1529919342]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=700274630]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_xnrpp")
+
+[node name="Components" type="Node" parent="." unique_id=728797986]
+
+[node name="GravityComponent" type="Node2D" parent="Components" unique_id=1235762648]
+script = ExtResource("3_d0e5q")
+metadata/_custom_type_script = "uid://b36e3gbpbtjjw"
+
+[node name="JumpComponent" type="Node2D" parent="Components" unique_id=25547296]
+script = ExtResource("4_k38fb")
+metadata/_custom_type_script = "uid://s8qhobcpe21i"
+
+[node name="InputComponent" type="Node2D" parent="Components" unique_id=259753235]
+script = ExtResource("5_uc84o")
+metadata/_custom_type_script = "uid://bxeigxbdbk1wn"
+
+[node name="VelocityComponent" type="Node2D" parent="Components" unique_id=1043638467]
+script = ExtResource("6_svh60")
+metadata/_custom_type_script = "uid://drhyx0li6vcob"
