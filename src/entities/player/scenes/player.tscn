@@ -6,19 +6,188 @@
 [ext_resource type="Script" uid="uid://s8qhobcpe21i" path="res://src/components/motion/jump_component.gd" id="4_k38fb"]
 [ext_resource type="Script" uid="uid://bxeigxbdbk1wn" path="res://src/components/motion/input_component.gd" id="5_uc84o"]
 [ext_resource type="Script" uid="uid://drhyx0li6vcob" path="res://src/components/motion/velocity_component.gd" id="6_svh60"]
+[ext_resource type="Script" uid="uid://bcsbjql57i5rp" path="res://src/components/motion/animation_component.gd" id="7_k38fb"]
+
+[sub_resource type="Animation" id="Animation_d0e5q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_18lma")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_k38fb"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 2
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_18lma")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_uc84o"]
+resource_name = "run"
+length = 1.05
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_18lma")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45000002, 0.6, 0.75, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10, 11, 12, 13]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uc84o"]
+_data = {
+&"RESET": SubResource("Animation_d0e5q"),
+&"idle": SubResource("Animation_k38fb"),
+&"run": SubResource("Animation_uc84o")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnrpp"]
 size = Vector2(15, 13)
 
-[node name="Player" type="CharacterBody2D" unique_id=28741331 node_paths=PackedStringArray("input_component", "gravity_component", "jump_component", "velocity_component", "Sprite")]
+[node name="Player" type="CharacterBody2D" unique_id=28741331 node_paths=PackedStringArray("input_component", "gravity_component", "jump_component", "velocity_component", "animation_component", "Sprite", "animation_player")]
 script = ExtResource("1_xnrpp")
-SPEED = 100.0
-JUMP_VELOCITY = -200.0
+SPEED = 150.0
+JUMP_VELOCITY = -275.0
 input_component = NodePath("Components/InputComponent")
 gravity_component = NodePath("Components/GravityComponent")
 jump_component = NodePath("Components/JumpComponent")
 velocity_component = NodePath("Components/VelocityComponent")
+animation_component = NodePath("Components/AnimationComponent")
 Sprite = NodePath("Sprite")
+animation_player = NodePath("AnimationPlayer")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1126164781]
 position = Vector2(0, -10)
@@ -27,6 +196,7 @@ hframes = 7
 vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1529919342]
+libraries/ = SubResource("AnimationLibrary_uc84o")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=700274630]
 position = Vector2(-0.5, -0.5)
@@ -49,3 +219,7 @@ metadata/_custom_type_script = "uid://bxeigxbdbk1wn"
 [node name="VelocityComponent" type="Node2D" parent="Components" unique_id=1043638467]
 script = ExtResource("6_svh60")
 metadata/_custom_type_script = "uid://drhyx0li6vcob"
+
+[node name="AnimationComponent" type="Node2D" parent="Components" unique_id=1314334803]
+script = ExtResource("7_k38fb")
+metadata/_custom_type_script = "uid://bcsbjql57i5rp"

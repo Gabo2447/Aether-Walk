@@ -26,11 +26,11 @@ Una de las metas principales es evitar los scripts monolíticos. En su lugar, el
 ```text
 src/
 └── components/
-    └── motion/
-        ├── gravity_component.gd   (Maneja la caída)
-        ├── input_component.gd     (Lee las teclas)
-        ├── jump_component.gd      (Maneja el impulso hacia arriba)
-        └── velocity_component.gd  (Calcula el movimiento final)
+	└── motion/
+		├── gravity_component.gd   (Maneja la caída)
+		├── input_component.gd     (Lee las teclas)
+		├── jump_component.gd      (Maneja el impulso hacia arriba)
+		└── velocity_component.gd  (Calcula el movimiento final)
 ```
 
 ## 🚀 Cómo probarlo
